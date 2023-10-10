@@ -1,45 +1,46 @@
-var React = require("react")
-var Minimatch = require("minimatch").Minimatch
+var React = require("react");
+var Minimatch = require("minimatch").Minimatch;
+const { isPluginDisabled } = require("./utils");
 
 exports.onRenderBody = (
   { setHeadComponents, setPostBodyComponents },
   pluginOptions
 ) => {
-  if (process.env.NODE_ENV !== `production` && process.env.NODE_ENV !== `test`)
-    return null
+  if (isPluginDisabled(pluginOptions)) return null;
 
-  const gtagConfig = pluginOptions.googleGtagPluginConfig.gtagConfig || {}
-  const pluginConfig = pluginOptions.googleGtagPluginConfig.pluginConfig || {}
+  const gtagConfig = pluginOptions.googleGtagPluginConfig.gtagConfig || {};
+  const pluginConfig = pluginOptions.googleGtagPluginConfig.pluginConfig || {};
 
-  const origin = pluginConfig.origin || `https://www.googletagmanager.com`
+  const origin = pluginConfig.origin || `https://www.googletagmanager.com`;
 
   // Lighthouse recommends pre-connecting to google tag manager
   setHeadComponents([
     <link rel="preconnect" key="preconnect-google-gtag" href={origin} />,
     <link rel="dns-prefetch" key="dns-prefetch-google-gtag" href={origin} />,
-  ])
+  ]);
 
   // Prevent duplicate or excluded pageview events being emitted on initial load of page by the `config` command
   // https://developers.google.com/analytics/devguides/collection/gtagjs/#disable_pageview_tracking
 
-  gtagConfig.send_page_view = false
+  gtagConfig.send_page_view = false;
 
   const firstTrackingId =
-    pluginOptions.googleGtagPluginConfig.trackingIds && pluginOptions.googleGtagPluginConfig.trackingIds.length
+    pluginOptions.googleGtagPluginConfig.trackingIds &&
+    pluginOptions.googleGtagPluginConfig.trackingIds.length
       ? pluginOptions.googleGtagPluginConfig.trackingIds[0]
-      : ``
+      : ``;
 
-  const excludeGtagPaths = []
+  const excludeGtagPaths = [];
   if (typeof pluginConfig.exclude !== `undefined`) {
-    pluginConfig.exclude.map(exclude => {
-      const mm = new Minimatch(exclude)
-      excludeGtagPaths.push(mm.makeRe())
-    })
+    pluginConfig.exclude.map((exclude) => {
+      const mm = new Minimatch(exclude);
+      excludeGtagPaths.push(mm.makeRe());
+    });
   }
 
   const setComponents = pluginConfig.head
     ? setHeadComponents
-    : setPostBodyComponents
+    : setPostBodyComponents;
 
   const renderHtml = () => `
       ${
@@ -64,12 +65,12 @@ exports.onRenderBody = (
 
         ${pluginOptions.googleGtagPluginConfig.trackingIds
           .map(
-            trackingId =>
+            (trackingId) =>
               `gtag('config', '${trackingId}', ${JSON.stringify(gtagConfig)});`
           )
           .join(``)}
       }
-      `
+      `;
 
   return setComponents([
     <script
@@ -84,5 +85,5 @@ exports.onRenderBody = (
       data-category="analytics"
       dangerouslySetInnerHTML={{ __html: renderHtml() }}
     />,
-  ])
-}
+  ]);
+};

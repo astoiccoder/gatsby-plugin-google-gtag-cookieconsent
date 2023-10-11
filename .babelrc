@@ -1,4 +1,3 @@
 {
-  "presets": [["babel-preset-gatsby-package", { "browser": true }]],
-  "plugins": [["@babel/plugin-transform-private-methods", { "loose": true }]]
+  "presets": [["babel-preset-gatsby-package", { "browser": true }]]
 }

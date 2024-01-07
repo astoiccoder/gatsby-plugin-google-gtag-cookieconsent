@@ -2,7 +2,9 @@
 
 This is an altered fork of [gatsby-plugin-google-gtag](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-google-gtag).
 
-Since this might here the [README](./README.gtag.md) at the time of the fork.
+The [README](./README.gtag.md) at the time of the forking.
+
+You can find more detailed information in this blogpost [Cookie Consent with Gatsby and Google Tagmanager](https://stoiccoder.blog/gatsby-consent/).
 
 ## Purpose
 
@@ -10,6 +12,10 @@ Easy configurable plugin to have a cookie consent popup with opt-in before loadi
 
 It stitches together the [gatsby-plugin-google-gtag](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-google-gtag) plugin
 with this awesome [cookieconsent](https://github.com/orestbida/cookieconsent) library.
+
+The final result will look like this:
+
+![Cookie Consent Popup](./examples/cookie-consent.jpg)
 
 ## Usage
 

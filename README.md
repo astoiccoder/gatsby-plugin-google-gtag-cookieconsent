@@ -32,13 +32,14 @@ Add this to your `gatsby-config.js`
       resolve: `gatsby-plugin-google-gtag-cookieconsent`,
       options: {
         cookieConsentConfig: { ... },
-        enableForAllEnvironments: true,
+        enableForAllEnvironments: true, // deprecated
+        enabled: true,
         googleGtagPluginConfig: { ... },
       },
     },
 ```
 
-You might want to set `enableForAllEnvironments` to `false` to only enable the plugin for production builds.
+You can use the enabled flag to disable the plugin in development mode. An example can be found in [examples/gatsby-config.js](./examples/gatsby-config.js) folder.
 
 In order to save space in your config file, I would recommend to move the extensive cookie consent config into a separate file, e.g. `cookie-consent-config`: 
 

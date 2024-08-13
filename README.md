@@ -40,7 +40,7 @@ Add this to your `gatsby-config.js`
 
 You might want to set `enableForAllEnvironments` to `false` to only enable the plugin for production builds.
 
-In order to save space in your config file, I would recommend to move the extensive cookie consent config into a separate file, e.g. `cookie-consent-config`: 
+In order to save space in your config file, I would recommend to move the extensive cookie consent config into a separate file, e.g. `cookie-consent-config.js`: 
 
 ```js
 exports.cookieConsentConfig = {

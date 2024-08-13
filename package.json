@@ -1,6 +1,6 @@
 {
     "name": "gatsby-plugin-google-gtag-cookieconsent",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "main": "index.js",
     "author": "Ulrich Herzkamp",
     "keywords": [
@@ -26,7 +26,7 @@
     "dependencies": {
         "vanilla-cookieconsent": "^3.0.1",
         "@babel/runtime": "^7.24.7",
-        "minimatch": "^9.0.4"
+        "minimatch": "^3.1.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.24.7",

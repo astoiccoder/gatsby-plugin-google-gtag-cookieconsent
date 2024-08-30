@@ -1,8 +1,8 @@
 {
-    "name": "gatsby-plugin-google-gtag-cookieconsent",
-    "version": "0.0.6",
+    "name": "gatsby-plugin-google-gtag-cookieconsent-consent-mode",
+    "version": "0.0.1",
     "main": "index.js",
-    "author": "Ulrich Herzkamp",
+    "author": "Erik Hector",
     "keywords": [
         "gatsby",
         "gatsby-plugin",

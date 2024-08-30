@@ -12,10 +12,10 @@
         "google-analytics",
         "google gtag"
     ],
-    "homepage": "https://github.com/astoiccoder/gatsby-plugin-google-gtag-cookieconsent",
+    "homepage": "https://github.com/erik-hector/gatsby-plugin-google-gtag-cookieconsent-consent-mode",
     "repository": {
         "type": "git",
-        "url": "https://github.com/astoiccoder/gatsby-plugin-google-gtag-cookieconsent.git"
+        "url": "https://github.com/erik-hector/gatsby-plugin-google-gtag-cookieconsent-consent-mode.git"
     },
     "license": "MIT",
     "scripts": {
